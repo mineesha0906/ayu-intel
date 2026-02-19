@@ -160,7 +160,7 @@ The system follows a structured multi-stage AI pipeline that transforms raw clin
 ## 📊 Technical Flow Diagram
 
 ```mermaid
-flowchart TB
+flowchart  LR
 
 A["User Input
 Voice / Text / Upload Reports"]
