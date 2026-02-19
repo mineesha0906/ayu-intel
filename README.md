@@ -1,63 +1,114 @@
-# AYU-INTEL: Explainable AI for AYUSH Public Health Intelligence
-
-[cite_start]**AYU-INTEL** is an Explainable AI-based Public Health Intelligence and Personalized AYUSH Decision Support System[cite: 4]. [cite_start]Designed to enhance the **Ayush Hospital Management Information System (AHMIS)**, it transforms clinical data from over 12,000 centers into predictive intelligence for outbreak detection and personalized treatment optimization[cite: 4, 5].
-
----
-
-## 📌 Problem Overview
-[cite_start]Currently, clinical data in AYUSH centers is primarily used for record-keeping rather than predictive intelligence or outbreak detection[cite: 5].
-
-### [cite_start]Key Challenges [cite: 10, 21]
-* [cite_start]**Manual Entry:** EHR data entry is manual and time-consuming[cite: 11].
-* [cite_start]**Data Underutilization:** Clinical data is not effectively used for district-level outbreak intelligence[cite: 12, 13].
-* [cite_start]**Lack of Personalization:** Absence of AI-driven treatment assistance that incorporates *Prakriti*[cite: 14].
-* [cite_start]**Transparency Gap:** Existing systems lack explainability in predictive healthcare[cite: 15, 25].
+# AYU-INTEL  
+## Explainable AI for AYUSH Public Health Intelligence
 
 ---
 
-## 💡 Proposed Solution
-[cite_start]AYU-INTEL introduces a hybrid AI + rule-based architecture focusing on three integrated components[cite: 27, 31]:
-1. [cite_start]**Voice-Enabled EHR Capture:** Using Whisper for speech-to-text transcription of patient data[cite: 28, 77].
-2. [cite_start]**Explainable Outbreak Intelligence Engine:** Anomaly-based detection with SHAP-based feature contribution analysis[cite: 29, 107].
-3. [cite_start]**Prakriti-Aware Personalized Recommendation System:** Treatment plans based on AYUSH guidelines and patient similarity[cite: 30, 116].
+## 📌 Overview
+
+AYU-INTEL is an Explainable AI-based Public Health Intelligence and Personalized AYUSH Decision Support System designed to enhance the Ayush Hospital Management Information System (AHMIS).
+
+Over 12,000+ AYUSH centers generate large-scale clinical data across India. However, this data is primarily used for record-keeping rather than predictive intelligence, outbreak detection, or personalized treatment optimization.
+
+AYU-INTEL transforms passive clinical records into actionable public health intelligence using:
+
+- Voice-enabled EHR capture
+- Anomaly-based outbreak detection
+- Probabilistic risk modeling
+- SHAP-based explainability
+- Prakriti-aware personalized treatment recommendation
+
+The system is scalable, interoperable with AHMIS, and designed for MeghRaj cloud deployment.
 
 ---
 
-## 🏗️ System Architecture
-[cite_start]The system follows a multi-layered cloud-native architecture deployable on **MeghRaj (NIC) Cloud**[cite: 7, 167].
+## 🚩 Problem Statement
+
+### Current Challenges
+
+- Manual and time-consuming EHR entry
+- Underutilization of AYUSH clinical data
+- No district-level outbreak intelligence
+- No AI-driven personalized treatment support
+- Limited transparency in predictive systems
+
+### National Importance
+
+- 12,000+ AYUSH centers across India
+- Need for preventive healthcare intelligence
+- Demand for explainable and responsible AI
+- Data-driven governance in public health
+
+---
+
+## 🎯 Proposed Solution
+
+AYU-INTEL consists of three core components:
+
+1. Voice-Enabled EHR Capture  
+2. Explainable Outbreak Intelligence Engine  
+3. Prakriti-Aware Personalized Recommendation System  
+
+The system uses a hybrid AI + rule-based architecture to ensure:
+
+- Domain correctness
+- Transparency
+- Interpretability
+- Scalability
+
+---
+
+# 🏗 System Architecture
+
+Below is the high-level layered architecture of AYU-INTEL.
 
 ```mermaid
-graph LR
-    subgraph UI["User Interface Layer"]
-        A[Web/Tablet App - Doctor Interface]
-        B[Public Health Dashboard - Admin View]
+flowchart LR
+
+UI[User Interface Layer<br/>Web/Tablet App<br/>Public Health Dashboard]
+
+API[API Gateway Layer<br/>Authentication<br/>Rate Limiting<br/>Logging<br/>Secure Routing]
+
+subgraph APP["Application Services Layer"]
+    EHR[EHR Intake Service]
+    VOICE[Voice Processing Service]
+    NLP[NLP Extraction Service]
+    OUTSVC[Outbreak Analytics Service]
+    RISK[Risk Scoring Service]
+    REC[Recommendation Service]
+    EXP[Explainability Service]
+    FEED[Feedback Learning Service]
+    DASH[Dashboard Reporting Service]
+end
+
+subgraph DATA["Data Layer"]
+    DB[PostgreSQL - Patient Records]
+    TS[Time-Series DB - Disease Trends]
+    OBJ[Object Storage - Reports]
+    REG[Model Registry]
+    LOG[Audit Logs]
+end
+
+subgraph AI["AI Model Layer"]
+
+    subgraph INPUT["Input Intelligence Models"]
+        W[Whisper - Speech to Text]
+        NER[spaCy NER - Entity Extraction]
     end
 
-    subgraph Gateway["API Gateway Layer"]
-        C[Auth, Rate Limiting, & Secure Routing]
+    subgraph OUTBREAK["Outbreak Intelligence Engine"]
+        IF[Isolation Forest - Anomaly Detection]
+        XGB[XGBoost - Risk Probability]
+        SHAP[SHAP - Feature Contribution]
     end
 
-    subgraph Services["Application Services Layer"]
-        D[EHR Intake & Voice Processing]
-        E[Outbreak Analytics & Risk Scoring]
-        F[Recommendation & Explainability]
+    subgraph RECOMMEND["Recommendation Intelligence Engine"]
+        RULE[Rule-Based AYUSH Engine]
+        KNN[KNN - Similar Patient Matching]
+        CONF[Confidence Estimator]
     end
+end
 
-    subgraph Data["Data Layer"]
-        G[(PostgreSQL - Patient Records)]
-        H[(Time-Series DB - Disease Trends)]
-        I[Object Storage & Feature Store]
-    end
+CLOUD[Cloud Deployment<br/>MeghRaj (NIC)<br/>Docker + Kubernetes]
 
-    subgraph AI["AI Model Layer"]
-        J[Input Intelligence: Whisper & spaCy]
-        K[Outbreak Engine: Isolation Forest & XGBoost]
-        L[Recommendation: KNN & Rule Engine]
-    end
+UI --> API --> APP --> AI --> DATA --> CLOUD
 
-    UI --> Gateway
-    Gateway --> Services
-    Services --> Data
-    Services --> AI
-    AI --> M[Cloud Deployment]
-This repository is part of an academic/government innovation proposal and is under active development.
