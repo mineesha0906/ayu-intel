@@ -64,51 +64,53 @@ Below is the high-level layered architecture of AYU-INTEL.
 ```mermaid
 flowchart LR
 
-UI[User Interface Layer<br/>Web/Tablet App<br/>Public Health Dashboard]
+UI["User Interface Layer\nWeb/Tablet App\nPublic Health Dashboard"]
 
-API[API Gateway Layer<br/>Authentication<br/>Rate Limiting<br/>Logging<br/>Secure Routing]
+API["API Gateway Layer\nAuthentication\nRate Limiting\nLogging\nSecure Routing"]
 
 subgraph APP["Application Services Layer"]
-    EHR[EHR Intake Service]
-    VOICE[Voice Processing Service]
-    NLP[NLP Extraction Service]
-    OUTSVC[Outbreak Analytics Service]
-    RISK[Risk Scoring Service]
-    REC[Recommendation Service]
-    EXP[Explainability Service]
-    FEED[Feedback Learning Service]
-    DASH[Dashboard Reporting Service]
+    EHR["EHR Intake Service"]
+    VOICE["Voice Processing Service"]
+    NLP["NLP Extraction Service"]
+    OUTSVC["Outbreak Analytics Service"]
+    RISK["Risk Scoring Service"]
+    REC["Recommendation Service"]
+    EXP["Explainability Service"]
+    FEED["Feedback Learning Service"]
+    DASH["Dashboard Reporting Service"]
 end
 
 subgraph DATA["Data Layer"]
-    DB[PostgreSQL - Patient Records]
-    TS[Time-Series DB - Disease Trends]
-    OBJ[Object Storage - Reports]
-    REG[Model Registry]
-    LOG[Audit Logs]
+    DB["PostgreSQL - Patient Records"]
+    TS["Time-Series DB - Disease Trends"]
+    OBJ["Object Storage - Reports"]
+    REG["Model Registry"]
+    LOG["Audit Logs"]
 end
 
 subgraph AI["AI Model Layer"]
 
     subgraph INPUT["Input Intelligence Models"]
-        W[Whisper - Speech to Text]
-        NER[spaCy NER - Entity Extraction]
+        W["Whisper - Speech to Text"]
+        NER["spaCy NER - Entity Extraction"]
     end
 
     subgraph OUTBREAK["Outbreak Intelligence Engine"]
-        IF[Isolation Forest - Anomaly Detection]
-        XGB[XGBoost - Risk Probability]
-        SHAP[SHAP - Feature Contribution]
+        IF["Isolation Forest - Anomaly Detection"]
+        XGB["XGBoost - Risk Probability"]
+        SHAP["SHAP - Feature Contribution"]
     end
 
     subgraph RECOMMEND["Recommendation Intelligence Engine"]
-        RULE[Rule-Based AYUSH Engine]
-        KNN[KNN - Similar Patient Matching]
-        CONF[Confidence Estimator]
+        RULE["Rule-Based AYUSH Engine"]
+        KNN["KNN - Similar Patient Matching"]
+        CONF["Confidence Estimator"]
     end
 end
 
-CLOUD[Cloud Deployment<br/>MeghRaj (NIC)<br/>Docker + Kubernetes]
+CLOUD["Cloud Deployment\nMeghRaj (NIC)\nDocker + Kubernetes"]
+
+UI --> API --> APP --> AI --> DATA --> CLOUD
 
 UI --> API --> APP --> AI --> DATA --> CLOUD
 
