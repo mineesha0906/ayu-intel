@@ -64,7 +64,7 @@ Below is the high-level layered architecture of AYU-INTEL.
 ```mermaid
 flowchart LR
 
-%% Top horizontal flow
+%% Horizontal Top Flow
 UI["User Interface Layer
 Web / Tablet App
 Public Health Dashboard"]
@@ -84,13 +84,11 @@ Risk Scoring
 Recommendation
 Explainability"]
 
-AI["AI Model Layer"]
-
-UI --> API --> APP --> AI
+UI --> API --> APP
 
 
-%% AI Internal Structure (Vertical)
-subgraph AI_INTERNAL["AI Model Layer – Internal Components"]
+%% AI Model Layer
+subgraph AI["AI Model Layer"]
 direction TB
 
 INPUT["Input Intelligence Models
@@ -104,20 +102,22 @@ SHAP Explainability"]
 
 RECOMMEND["Recommendation Intelligence Engine
 Rule-Based AYUSH Engine
-KNN Similarity Matching
+KNN Similar Patient Matching
 Confidence Estimator"]
 
-end
-
-AI --> INPUT
 INPUT --> OUTBREAK
 OUTBREAK --> RECOMMEND
 
+end
 
-%% Cloud Deployment on Left of AI
+APP --> INPUT
+
+
+%% Cloud Deployment (after full AI processing)
+
 CLOUD["Cloud Deployment
 MeghRaj (NIC)
 Docker + Kubernetes
 Monitoring & Logging"]
 
-AI --> CLOUD
+RECOMMEND --> CLOUD
