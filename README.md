@@ -121,3 +121,72 @@ Docker + Kubernetes
 Monitoring & Logging"]
 
 RECOMMEND --> CLOUD
+```
+# 🔄 Technical Processing Flow
+
+The system follows a structured multi-stage AI pipeline that transforms raw clinical input into explainable outbreak intelligence and personalized treatment recommendations.
+
+### Step-by-Step Flow
+
+1. **User Input**  
+   Doctor enters patient data via voice, text, or uploaded reports.
+
+2. **Input Processing Layer**  
+   - Whisper converts speech to text.  
+   - spaCy NER extracts structured clinical entities (age, symptoms, diagnosis, prakriti, location).
+
+3. **EHR Structuring Layer**  
+   - Structured patient record is stored in the database.  
+   - Data completeness and validation checks are performed.
+
+4. **Outbreak Intelligence Engine**  
+   - District-level data is aggregated.  
+   - Isolation Forest detects anomaly patterns.  
+   - XGBoost computes outbreak risk probability.  
+   - SHAP explains contributing features.
+
+5. **Recommendation Engine**  
+   - Rule-based AYUSH protocol engine generates guideline-aligned treatment.  
+   - KNN identifies similar patients for personalization.  
+   - Confidence score is calculated.
+
+6. **Output Dashboard**  
+   - Risk heatmap for administrators.  
+   - Personalized treatment plan for doctors.  
+   - Alerts and preventive action suggestions.
+
+---
+
+## 📊 Technical Flow Diagram
+
+```mermaid
+flowchart TB
+
+A["User Input
+Voice / Text / Upload Reports"]
+
+B["Input Processing
+Whisper → Speech to Text
+spaCy NER → Extract Entities"]
+
+C["EHR Structuring
+Store Structured Record
+Validate Completeness"]
+
+D["Outbreak Intelligence
+Aggregate District Data
+Isolation Forest
+XGBoost Risk Score
+SHAP Explainability"]
+
+E["Recommendation Engine
+Apply AYUSH Rules
+KNN Similarity Matching
+Confidence Score"]
+
+F["Output Dashboard
+Doctor View
+Risk Heatmap
+Alerts & Reports"]
+
+A --> B --> C --> D --> E --> F
