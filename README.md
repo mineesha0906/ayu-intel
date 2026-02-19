@@ -62,7 +62,7 @@ The system uses a hybrid AI + rule-based architecture to ensure:
 Below is the high-level layered architecture of AYU-INTEL.
 
 ```mermaid
-flowchart LR
+flowchart TB
 
 UI["User Interface Layer\nWeb/Tablet App\nPublic Health Dashboard"]
 
