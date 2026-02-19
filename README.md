@@ -62,55 +62,59 @@ The system uses a hybrid AI + rule-based architecture to ensure:
 Below is the high-level layered architecture of AYU-INTEL.
 
 ```mermaid
-flowchart TB
+flowchart LR
 
-UI["User Interface Layer\nWeb/Tablet App\nPublic Health Dashboard"]
+%% TOP FLOW (Left to Right)
 
-API["API Gateway Layer\nAuthentication\nRate Limiting\nLogging\nSecure Routing"]
+UI["User Interface Layer
+Web / Tablet App
+Public Health Dashboard"]
 
-subgraph APP["Application Services Layer"]
-    EHR["EHR Intake Service"]
-    VOICE["Voice Processing Service"]
-    NLP["NLP Extraction Service"]
-    OUTSVC["Outbreak Analytics Service"]
-    RISK["Risk Scoring Service"]
-    REC["Recommendation Service"]
-    EXP["Explainability Service"]
-    FEED["Feedback Learning Service"]
-    DASH["Dashboard Reporting Service"]
+API["API Gateway Layer
+Authentication
+Rate Limiting
+Logging
+Secure Routing"]
+
+APP["Application Services Layer
+EHR Intake
+Voice Processing
+NLP Extraction
+Outbreak Service
+Risk Scoring
+Recommendation
+Explainability"]
+
+AI["AI Model Layer"]
+
+CLOUD["Cloud Deployment
+MeghRaj (NIC)
+Docker + Kubernetes"]
+
+UI --> API --> APP --> AI --> CLOUD
+
+
+%% SECOND LEVEL (Models Inside AI - Vertical)
+
+subgraph AI_DETAILS["AI Model Layer – Internal Components"]
+direction TB
+
+INPUT["Input Intelligence Models
+Whisper (Speech-to-Text)
+spaCy NER (Entity Extraction)"]
+
+OUTBREAK["Outbreak Intelligence Engine
+Isolation Forest
+XGBoost
+SHAP Explainability"]
+
+RECOMMEND["Recommendation Intelligence Engine
+Rule-Based AYUSH Engine
+KNN Matching
+Confidence Estimator"]
+
 end
 
-subgraph DATA["Data Layer"]
-    DB["PostgreSQL - Patient Records"]
-    TS["Time-Series DB - Disease Trends"]
-    OBJ["Object Storage - Reports"]
-    REG["Model Registry"]
-    LOG["Audit Logs"]
-end
-
-subgraph AI["AI Model Layer"]
-
-    subgraph INPUT["Input Intelligence Models"]
-        W["Whisper - Speech to Text"]
-        NER["spaCy NER - Entity Extraction"]
-    end
-
-    subgraph OUTBREAK["Outbreak Intelligence Engine"]
-        IF["Isolation Forest - Anomaly Detection"]
-        XGB["XGBoost - Risk Probability"]
-        SHAP["SHAP - Feature Contribution"]
-    end
-
-    subgraph RECOMMEND["Recommendation Intelligence Engine"]
-        RULE["Rule-Based AYUSH Engine"]
-        KNN["KNN - Similar Patient Matching"]
-        CONF["Confidence Estimator"]
-    end
-end
-
-CLOUD["Cloud Deployment\nMeghRaj (NIC)\nDocker + Kubernetes"]
-
-UI --> API --> APP --> AI --> DATA --> CLOUD
-
-UI --> API --> APP --> AI --> DATA --> CLOUD
-
+AI --> INPUT
+INPUT --> OUTBREAK
+OUTBREAK --> RECOMMEND
