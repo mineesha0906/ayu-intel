@@ -64,8 +64,7 @@ Below is the high-level layered architecture of AYU-INTEL.
 ```mermaid
 flowchart LR
 
-%% TOP FLOW (Left to Right)
-
+%% Top horizontal flow
 UI["User Interface Layer
 Web / Tablet App
 Public Health Dashboard"]
@@ -87,16 +86,11 @@ Explainability"]
 
 AI["AI Model Layer"]
 
-CLOUD["Cloud Deployment
-MeghRaj (NIC)
-Docker + Kubernetes"]
-
-UI --> API --> APP --> AI --> CLOUD
+UI --> API --> APP --> AI
 
 
-%% SECOND LEVEL (Models Inside AI - Vertical)
-
-subgraph AI_DETAILS["AI Model Layer – Internal Components"]
+%% AI Internal Structure (Vertical)
+subgraph AI_INTERNAL["AI Model Layer – Internal Components"]
 direction TB
 
 INPUT["Input Intelligence Models
@@ -105,12 +99,12 @@ spaCy NER (Entity Extraction)"]
 
 OUTBREAK["Outbreak Intelligence Engine
 Isolation Forest
-XGBoost
+XGBoost Risk Model
 SHAP Explainability"]
 
 RECOMMEND["Recommendation Intelligence Engine
 Rule-Based AYUSH Engine
-KNN Matching
+KNN Similarity Matching
 Confidence Estimator"]
 
 end
@@ -118,3 +112,12 @@ end
 AI --> INPUT
 INPUT --> OUTBREAK
 OUTBREAK --> RECOMMEND
+
+
+%% Cloud Deployment on Left of AI
+CLOUD["Cloud Deployment
+MeghRaj (NIC)
+Docker + Kubernetes
+Monitoring & Logging"]
+
+AI --> CLOUD
