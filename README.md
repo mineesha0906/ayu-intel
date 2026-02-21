@@ -57,7 +57,7 @@ The system uses a hybrid AI + rule-based architecture to ensure:
 
 ---
 
-# 4. System Architecture
+## 4. System Architecture
 
 Below is the high-level layered architecture of AYU-INTEL.
 
@@ -122,7 +122,7 @@ Monitoring & Logging"]
 
 RECOMMEND --> CLOUD
 ```
-# 5. Technical Processing Flow
+## 5. Technical Processing Flow
 
 
 AYU-INTEL follows a structured multi-stage AI processing pipeline to transform raw clinical input into explainable intelligence and personalized care.
@@ -253,7 +253,7 @@ The project offers flexible financial models to accommodate public health budget
 * **Cost Efficiency**: Maximum cost-effectiveness is achieved by utilizing an **Open-Source AI Stack** and indigenous deployment infrastructure.
 
 ---
-# 10. Conclusion
+## 10. Conclusion
 
 AYU-INTEL presents a scalable, explainable, and domain-aligned AI framework for transforming AYUSH clinical data into actionable public health intelligence. By integrating anomaly detection, probabilistic risk modeling, SHAP-based transparency, and prakriti-aware personalized recommendations, the system bridges the gap between traditional AYUSH practices and modern AI-driven decision support. Designed with responsible AI principles, interoperability, and cloud scalability in mind, AYU-INTEL provides a realistic and deployable roadmap for strengthening preventive healthcare and data-driven governance across India’s 12,000+ AYUSH centers.
 
