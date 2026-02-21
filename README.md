@@ -204,6 +204,21 @@ Alerts & Reports"]
 A --> B --> C --> D --> E --> F
 ```
 ---
+## 🛠️ AI Model Stack
+
+The technical stack for **AYU-INTEL** is selected to ensure high interpretability, seamless compatibility with SHAP, and realistic implementation feasibility in public health environments.
+
+| Model Component | Technology | Primary Function |
+| :--- | :--- | :--- |
+| **Speech-to-Text** | `Whisper` | Converts doctor-patient dialogue into text for EHR capture. |
+| **Clinical Entity Extraction** | `spaCy NER` | Identifies structured clinical entities such as symptoms and Prakriti. |
+| **Anomaly Detection** | `Isolation Forest` | Detects abnormal disease spikes by learning normal district-level patterns. |
+| **Risk Probability Modeling** | `XGBoost` | Computes precise, probability-based outbreak risk scores. |
+| **Explainability** | `SHAP` | Provides feature-level transparency for every risk prediction. |
+| **Patient Similarity Matching** | `KNN` | Identifies patients with similar historical outcomes for personalized care. |
+| **AYUSH Protocol Logic** | `Rule-Based Engine` | Ensures recommendations strictly align with standardized AYUSH guidelines. |
+
+> This stack ensures interpretability, compatibility with SHAP, and realistic implementation feasibility.
 
 # ✅ Conclusion
 
