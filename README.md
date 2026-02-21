@@ -220,6 +220,21 @@ The technical stack for **AYU-INTEL** is selected to ensure high interpretabilit
 
 > This stack ensures interpretability, compatibility with SHAP, and realistic implementation feasibility.
 
+## 📂 Project Structure & Module Descriptions
+
+The repository is organized to follow the structured technical pipeline. Each file represents a core component of the proposed AI Model Stack:
+
+| File Name | AI Component | Description |
+| :--- | :--- | :--- |
+| `whisper_processor.py` | **Speech-to-Text** | Handles audio-to-text transcription for voice-enabled EHR capture. |
+| `ner_extractor.py` | **Clinical Entity Extraction** | Uses spaCy to extract entities like Prakriti, Age, and Symptoms. |
+| `outbreak_detector.py` | **Anomaly Detection** | Implements Isolation Forest to detect abnormal district-level disease spikes. |
+| `risk_classifier.py` | **Risk Probability Modeling** | Uses XGBoost to compute probabilistic outbreak risk scores. |
+| `explainability_engine.py` | **SHAP Explainability** | Provides feature-level transparency for AI-driven risk predictions. |
+| `protocol_rules.py` | **AYUSH Protocol Logic** | A rule-based engine mapping diagnosis and Prakriti to treatments. |
+| `patient_matcher.py` | **Similarity Matching** | Uses KNN to find similar historical patient cases for personalization. |
+
+> **Note**: These modules are currently in the architectural setup phase and represent the planned implementation for the AYU-INTEL framework.
 # ✅ Conclusion
 
 AYU-INTEL presents a scalable, explainable, and domain-aligned AI framework for transforming AYUSH clinical data into actionable public health intelligence. By integrating anomaly detection, probabilistic risk modeling, SHAP-based transparency, and prakriti-aware personalized recommendations, the system bridges the gap between traditional AYUSH practices and modern AI-driven decision support. Designed with responsible AI principles, interoperability, and cloud scalability in mind, AYU-INTEL provides a realistic and deployable roadmap for strengthening preventive healthcare and data-driven governance across India’s 12,000+ AYUSH centers.
