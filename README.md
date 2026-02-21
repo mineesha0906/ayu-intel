@@ -3,7 +3,7 @@
 
 ---
 
-## 📌 Overview
+## 1. Overview
 
 AYU-INTEL is an Explainable AI-based Public Health Intelligence and Personalized AYUSH Decision Support System designed to enhance the Ayush Hospital Management Information System (AHMIS).
 
@@ -21,7 +21,7 @@ The system is scalable, interoperable with AHMIS, and designed for MeghRaj cloud
 
 ---
 
-## 🚩 Problem Statement
+## 2. Problem Statement
 
 ### Current Challenges
 
@@ -40,7 +40,7 @@ The system is scalable, interoperable with AHMIS, and designed for MeghRaj cloud
 
 ---
 
-## 🎯 Proposed Solution
+## 3. Proposed Solution
 
 AYU-INTEL consists of three core components:
 
@@ -57,7 +57,7 @@ The system uses a hybrid AI + rule-based architecture to ensure:
 
 ---
 
-# 🏗 System Architecture
+# 4. System Architecture
 
 Below is the high-level layered architecture of AYU-INTEL.
 
@@ -122,7 +122,7 @@ Monitoring & Logging"]
 
 RECOMMEND --> CLOUD
 ```
-# 🔄 Technical Processing Flow
+# 5. Technical Processing Flow
 
 
 AYU-INTEL follows a structured multi-stage AI processing pipeline to transform raw clinical input into explainable intelligence and personalized care.
@@ -169,7 +169,7 @@ The processed intelligence is delivered through specialized dashboards.
 * **Doctor Dashboard:** Personalized treatment plans, confidence scores, and feature contribution insights.
 * **Public Health Dashboard:** District heatmaps, risk probability scores, SHAP explanations, and preventive action suggestions.
 
-## 📊 Technical Flow Diagram
+## 6. Technical Flow Diagram
 
 ```mermaid
 flowchart  LR
@@ -205,7 +205,7 @@ A --> B --> C --> D --> E --> F
 ```
 ---
 
-## 📂 Project Structure & Module Descriptions
+## 7. Project Structure & Module Descriptions
 
 The repository is organized to follow a structured technical pipeline. Each file represents a core component of the proposed AI Model Stack:
 
@@ -221,7 +221,7 @@ The repository is organized to follow a structured technical pipeline. Each file
 
 > **Note**: These modules are currently in the architectural setup phase and represent the planned implementation for the AYU-INTEL framework.
 
-## 🚀 Scalability & Deployment Plan
+## 8. Scalability & Deployment Plan
 
 To ensure a smooth and reliable implementation, AYU-INTEL follows a phased rollout strategy designed for high availability and national reach.
 
@@ -238,7 +238,7 @@ The system is built to be cloud-native and resilient:
 
 ---
 
-## 💼 Business Model & Go-To-Market
+## 9. Business Model & Go-To-Market
 
 AYU-INTEL is structured as a sustainable, government-focused AI solution.
 
@@ -253,7 +253,7 @@ The project offers flexible financial models to accommodate public health budget
 * **Cost Efficiency**: Maximum cost-effectiveness is achieved by utilizing an **Open-Source AI Stack** and indigenous deployment infrastructure.
 
 ---
-# ✅ Conclusion
+# 10. Conclusion
 
 AYU-INTEL presents a scalable, explainable, and domain-aligned AI framework for transforming AYUSH clinical data into actionable public health intelligence. By integrating anomaly detection, probabilistic risk modeling, SHAP-based transparency, and prakriti-aware personalized recommendations, the system bridges the gap between traditional AYUSH practices and modern AI-driven decision support. Designed with responsible AI principles, interoperability, and cloud scalability in mind, AYU-INTEL provides a realistic and deployable roadmap for strengthening preventive healthcare and data-driven governance across India’s 12,000+ AYUSH centers.
 
