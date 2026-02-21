@@ -207,17 +207,17 @@ A --> B --> C --> D --> E --> F
 
 ## 📂 Project Structure & Module Descriptions
 
-The repository is organized to follow the structured technical pipeline. Each file represents a core component of the proposed AI Model Stack:
+The repository is organized to follow a structured technical pipeline. Each file represents a core component of the proposed AI Model Stack:
 
-| File Name | AI Component | Description |
-| :--- | :--- | :--- |
-| `whisper_processor.py` | **Speech-to-Text** | Handles audio-to-text transcription for voice-enabled EHR capture. |
-| `ner_extractor.py` | **Clinical Entity Extraction** | Uses spaCy to extract entities like Prakriti, Age, and Symptoms. |
-| `outbreak_detector.py` | **Anomaly Detection** | Implements Isolation Forest to detect abnormal district-level disease spikes. |
-| `risk_classifier.py` | **Risk Probability Modeling** | Uses XGBoost to compute probabilistic outbreak risk scores. |
-| `explainability_engine.py` | **SHAP Explainability** | Provides feature-level transparency for AI-driven risk predictions. |
-| `protocol_rules.py` | **AYUSH Protocol Logic** | A rule-based engine mapping diagnosis and Prakriti to treatments. |
-| `patient_matcher.py` | **Similarity Matching** | Uses KNN to find similar historical patient cases for personalization. |
+| File Name | AI Component | Model / Technology | Description |
+| :--- | :--- | :--- | :--- |
+| `whisper_processor.py` | **Speech-to-Text** | Whisper (Transformer ASR) | Handles audio-to-text transcription for voice-enabled EHR capture. |
+| `ner_extractor.py` | **Clinical Entity Extraction** | spaCy (Custom NER) | Uses NLP to extract entities like Prakriti, Age, and Symptoms. |
+| `outbreak_detector.py` | **Anomaly Detection** | Isolation Forest | Detects abnormal district-level disease spikes based on historical patterns. |
+| `risk_classifier.py` | **Risk Probability Modeling** | XGBoost Classifier | Computes probabilistic outbreak risk scores from engineered features. |
+| `explainability_engine.py` | **SHAP Explainability** | SHAP (TreeExplainer) | Provides feature-level transparency for AI-driven risk predictions. |
+| `protocol_rules.py` | **AYUSH Protocol Logic** | Rule-Based Engine | Maps diagnosis, season, and Prakriti to standardized treatments. |
+| `patient_matcher.py` | **Similarity Matching** | K-Nearest Neighbors (KNN) | Finds similar historical patient cases to refine personalization. |
 
 > **Note**: These modules are currently in the architectural setup phase and represent the planned implementation for the AYU-INTEL framework.
 # ✅ Conclusion
