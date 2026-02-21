@@ -124,38 +124,50 @@ RECOMMEND --> CLOUD
 ```
 # 🔄 Technical Processing Flow
 
-The system follows a structured multi-stage AI pipeline that transforms raw clinical input into explainable outbreak intelligence and personalized treatment recommendations.
 
-### Step-by-Step Flow
+AYU-INTEL follows a structured multi-stage AI processing pipeline to transform raw clinical input into explainable intelligence and personalized care.
 
-1. **User Input**  
-   Doctor enters patient data via voice, text, or uploaded reports.
+### Step 1: Voice & Text Input
+Doctors input patient information via voice or text interfaces.
+* **Model Used:** `Whisper` (Transformer-based ASR Model).
+* **Function:** Converts audio input into high-accuracy text transcription.
 
-2. **Input Processing Layer**  
-   - Whisper converts speech to text.  
-   - spaCy NER extracts structured clinical entities (age, symptoms, diagnosis, prakriti, location).
+### Step 2: Clinical Entity Extraction
+The system processes the transcription to identify and structure medical data.
+* **Model Used:** `spaCy` Named Entity Recognition (NER).
+* **Extracted Entities:** Age, Gender, Diagnosis, Symptoms, Prakriti, Comorbidities, District, and Timestamp.
+* **Storage:** Structured records are stored securely in the system's EHR database.
 
-3. **EHR Structuring Layer**  
-   - Structured patient record is stored in the database.  
-   - Data completeness and validation checks are performed.
+### Step 3: Feature Engineering & Aggregation
+District-level patient data is aggregated to create predictive inputs for the intelligence engine.
+* **Computed Metrics:** Weekly case counts, case growth rates, seasonal deviation index, and demographic clustering metrics.
+* **Purpose:** These features form the foundation for predictive modeling.
 
-4. **Outbreak Intelligence Engine**  
-   - District-level data is aggregated.  
-   - Isolation Forest detects anomaly patterns.  
-   - XGBoost computes outbreak risk probability.  
-   - SHAP explains contributing features.
+### Step 4: Outbreak Detection
+Identifying abnormal disease spikes by learning historical patterns.
+* **Model Used:** `Isolation Forest`.
+* **Logic:** If the anomaly threshold is exceeded, a potential outbreak event is flagged for the specific district.
 
-5. **Recommendation Engine**  
-   - Rule-based AYUSH protocol engine generates guideline-aligned treatment.  
-   - KNN identifies similar patients for personalization.  
-   - Confidence score is calculated.
+### Step 5: Risk Probability Modeling
+Converting anomaly signals into interpretable risk estimates.
+* **Model Used:** `XGBoost Classifier`.
+* **Function:** Processes engineered features and anomaly scores to compute a probability-based risk score (e.g., **0.82 / High Risk**).
 
-6. **Output Dashboard**  
-   - Risk heatmap for administrators.  
-   - Personalized treatment plan for doctors.  
-   - Alerts and preventive action suggestions.
+### Step 6: Explainability (SHAP Integration)
+Ensuring transparency and trust in AI-driven public health decisions.
+* **Model Used:** `SHAP` TreeExplainer.
+* **Function:** Provides feature-level contribution analysis for each risk prediction.
+* **Insights:** Displays factors such as weekly case spike contribution, seasonal deviation impact, and demographic clustering effects.
 
----
+### Step 7: Personalized Recommendation Engine
+A dual-approach system for treatment optimization.
+* **A. Rule-Based AYUSH Protocol Engine:** Encodes standardized guidelines mapping $Diagnosis + Prakriti + Season$ to specific treatment plans, dietary modifications, and Yoga practices.
+* **B. Similar Patient Matching:** Uses `K-Nearest Neighbors (KNN)` to identify patients with similar conditions and Prakriti to improve personalization based on historical outcome similarity.
+
+### Step 8: Final Output & Visualization
+The processed intelligence is delivered through specialized dashboards.
+* **Doctor Dashboard:** Personalized treatment plans, confidence scores, and feature contribution insights.
+* **Public Health Dashboard:** District heatmaps, risk probability scores, SHAP explanations, and preventive action suggestions.
 
 ## 📊 Technical Flow Diagram
 
